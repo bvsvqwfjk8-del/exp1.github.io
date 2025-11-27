@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小兔鲜儿 - 新鲜一站购</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#27AE60',
+                        secondary: '#F8F9FA',
+                        accent: '#FF6B6B',
+                        dark: '#333333',
+                        light: '#F5F5F5'
+                    },
+                    fontFamily: {
+                        sans: ['PingFang SC', 'Microsoft YaHei', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-dark">
+
+    <header>
+
+        <div class="bg-dark text-white text-xs py-2">
+            <div class="container mx-auto px-4 flex justify-between items-center">
+                <div class="flex space-x-4">
+                    <a href="#" class="hover:text-primary transition-colors">站点登录</a>
+                    <a href="#" class="hover:text-primary transition-colors">免费注册</a>
+                    <a href="#" class="hover:text-primary transition-colors">我的订单</a>
+                    <a href="#" class="hover:text-primary transition-colors">会员中心</a>
+                    <a href="#" class="hover:text-primary transition-colors">帮助中心</a>
+                    <a href="#" class="hover:text-primary transition-colors">在线客服</a>
+                </div>
+                <div>
+                    <a href="#" class="hover:text-primary transition-colors">手机版 <i class="fa fa-mobile" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="bg-white shadow-md">
+            <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <img src="/imag/兔子logo.jpeg" alt="小兔鲜儿Logo" class="h-10 max-h-full max-w-full object-contain">
+                    <span class="text-xl font-bold text-primary">小兔鲜儿</span>
+                    <span class="text-xs text-gray-500">新鲜一站购</span>
+                </div>
+                
+      
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#" class="font-medium hover:text-primary transition-colors">首页</a>
+                    <a href="#" class="font-medium hover:text-primary transition-colors">美食</a>
+                    <a href="#" class="font-medium hover:text-primary transition-colors">生鲜</a>
+                    <a href="#" class="font-medium hover:text-primary transition-colors">餐厨</a>
+                    <a href="#" class="font-medium hover:text-primary transition-colors">电器</a>
+                    <a href="#" class="font-medium hover:text-primary transition-colors">家居</a>
+                    <a href="#" class="font-medium hover:text-primary transition-colors">洗护</a>
+                    <a href="#" class="font-medium hover:text-primary transition-colors">孕婴</a>
+                    <a href="#" class="font-medium hover:text-primary transition-colors">服装</a>
+                </nav>
+                
+   
+                <div class="flex items-center space-x-4">
+                    <div class="relative hidden md:block">
+                        <input type="text" placeholder="搜索商品" class="w-40 lg:w-60 h-9 px-3 py-1 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary">
+                        <button class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-primary">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="relative">
+                        <a href="#" class="text-gray-700 hover:text-primary text-lg">
+                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                            <span class="absolute -top-2 -right-2 bg-accent text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">2</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <main class="container mx-auto px-4 py-4">
+        <div class="flex flex-col md:flex-row gap-4">
+
+            <aside class="md:w-64 bg-white rounded-lg shadow-sm p-4">
+                <div class="space-y-3">
+
+                    <div class="category-item flex justify-between items-center py-2 border-b border-gray-100">
+                        <div class="flex items-center">
+                            <span class="font-medium">美食推荐</span>
+                        </div>
+                        <div class="flex items-center text-gray-400">
+                            <a href="#" class="text-xs hover:text-primary">面包</a>
+                            <span class="mx-1">|</span>
+                            <a href="#" class="text-xs hover:text-primary">干果</a>
+                            <i class="fa fa-angle-right ml-2" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="category-item flex justify-between items-center py-2 border-b border-gray-100">
+                        <div class="flex items-center">
+                            <span class="font-medium">生鲜果蔬</span>
+                        </div>
+                        <div class="flex items-center text-gray-400">
+                            <a href="#" class="text-xs hover:text-primary">蔬菜</a>
+                            <span class="mx-1">|</span>
+                            <a href="#" class="text-xs hover:text-primary">水果</a>
+                            <i class="fa fa-angle-right ml-2" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="category-item flex justify-between items-center py-2 border-b border-gray-100">
+                        <div class="flex items-center">
+                            <span class="font-medium">数码电子</span>
+                        </div>
+                        <div class="flex items-center text-gray-400">
+                            <a href="#" class="text-xs hover:text-primary">手机</a>
+                            <span class="mx-1">|</span>
+                            <a href="#" class="text-xs hover:text-primary">电脑</a>
+                            <i class="fa fa-angle-right ml-2" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="category-item flex justify-between items-center py-2 border-b border-gray-100">
+                        <div class="flex items-center">
+                            <span class="font-medium">家庭电器</span>
+                        </div>
+                        <div class="flex items-center text-gray-400">
+                            <a href="#" class="text-xs hover:text-primary">空调</a>
+                            <span class="mx-1">|</span>
+                            <a href="#" class="text-xs hover:text-primary">冰箱</a>
+                            <i class="fa fa-angle-right ml-2" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="category-item flex justify-between items-center py-2 border-b border-gray-100">
+                        <div class="flex items-center">
+                            <span class="font-medium">厨房用品</span>
+                        </div>
+                        <div class="flex items-center text-gray-400">
+                            <a href="#" class="text-xs hover:text-primary">厨电</a>
+                            <span class="mx-1">|</span>
+                            <a href="#" class="text-xs hover:text-primary">餐具</a>
+                            <i class="fa fa-angle-right ml-2" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="category-item flex justify-between items-center py-2 border-b border-gray-100">
+                        <div class="flex items-center">
+                            <span class="font-medium">居家生活</span>
+                        </div>
+                        <div class="flex items-center text-gray-400">
+                            <a href="#" class="text-xs hover:text-primary">床品</a>
+                            <span class="mx-1">|</span>
+                            <a href="#" class="text-xs hover:text-primary">厨具</a>
+                            <i class="fa fa-angle-right ml-2" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="category-item flex justify-between items-center py-2 border-b border-gray-100">
+                        <div class="flex items-center">
+                            <span class="font-medium">洗护美妆</span>
+                        </div>
+                        <div class="flex items-center text-gray-400">
+                            <a href="#" class="text-xs hover:text-primary">洗发</a>
+                            <span class="mx-1">|</span>
+                            <a href="#" class="text-xs hover:text-primary">美妆</a>
+                            <i class="fa fa-angle-right ml-2" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="category-item flex justify-between items-center py-2 border-b border-gray-100">
+                        <div class="flex items-center">
+                            <span class="font-medium">孕婴用品</span>
+                        </div>
+                        <div class="flex items-center text-gray-400">
+                            <a href="#" class="text-xs hover:text-primary">奶粉</a>
+                            <span class="mx-1">|</span>
+                            <a href="#" class="text-xs hover:text-primary">服装</a>
+                            <i class="fa fa-angle-right ml-2" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="category-item flex justify-between items-center py-2 border-b border-gray-100">
+                        <div class="flex items-center">
+                            <span class="font-medium">服饰穿搭</span>
+                        </div>
+                        <div class="flex items-center text-gray-400">
+                            <a href="#" class="text-xs hover:text-primary">女装</a>
+                            <span class="mx-1">|</span>
+                            <a href="#" class="text-xs hover:text-primary">男装</a>
+                            <i class="fa fa-angle-right ml-2" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="category-item flex justify-between items-center py-2">
+                        <div class="flex items-center">
+                            <span class="font-medium">日用杂货</span>
+                        </div>
+                        <div class="flex items-center text-gray-400">
+                            <a href="#" class="text-xs hover:text-primary">户外</a>
+                            <span class="mx-1">|</span>
+                            <a href="#" class="text-xs hover:text-primary">图书</a>
+                            <i class="fa fa-angle-right ml-2" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            
+
+            <div class="flex-1">
+ 
+                <div class="relative rounded-lg overflow-hidden h-80 mb-6 bg-light">
+                    <div class="absolute inset-0 flex items-center">
+                        <div class="w-1/2 px-10">
+                            <h2 class="text-4xl font-bold text-dark mb-2">SPRING NEW</h2>
+                            <h3 class="text-3xl font-bold text-primary mb-4">魅力早春</h3>
+                            <p class="text-gray-600 mb-6">[新品上市]</p>
+                            <p class="text-sm text-gray-500 mb-6">2023 NEW SPRING IN FEBRUARY</p>
+                            <button class="bg-primary text-white px-4 py-2 rounded-full hover:bg-primary/90 transition-colors">
+                                GO →
+                            </button>
+                        </div>
+                        <div class="w-1/2">
+                            <img src="/imag/banner1.jpg" alt="春季新品上市" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+
+                    <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                        <button class="w-2 h-2 rounded-full bg-white opacity-100"></button>
+                        <button class="w-2 h-2 rounded-full bg-white opacity-50"></button>
+                        <button class="w-2 h-2 rounded-full bg-white opacity-50"></button>
+                    </div>
+                </div>
+                
+                <section class="mb-8">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-xl font-bold">新鲜好物</h2>
+                        <div class="flex space-x-2">
+                            <a href="#" class="text-sm text-gray-500 hover:text-primary">新鲜出炉</a>
+                            <a href="#" class="text-sm text-gray-500 hover:text-primary">品质靠谱</a>
+                            <a href="#" class="text-sm text-primary">查看全部 <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="bg-white rounded-lg shadow-sm overflow-hidden card-hover">
+                            <div class="h-48 bg-light flex items-center justify-center">
+                                <img src="imag/6f37355bb8aa88ab.jpg" alt="KN95级莫兰迪色防护口罩" class="max-h-full max-w-full object-contain">
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-sm font-medium line-clamp-2 h-10">KN95级莫兰迪色防护口罩</h3>
+                                <p class="text-accent font-bold mt-2">¥79</p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm overflow-hidden card-hover">
+                            <div class="h-48 bg-light flex items-center justify-center">
+                                <img src="imag/O1CN01gTBWpl1XnOODnXUsZ_!!0-item_pic.jpg" alt="紫檀外独板三层管普洱茶盒" class="max-h-full max-w-full object-contain">
+                            </div>
+                            <div class="p-4">
+                                <img src="" alt="">
+                                <h3 class="text-sm font-medium line-clamp-2 h-10">紫檀外独板三层管普洱茶盒</h3>
+                                <p class="text-accent font-bold mt-2">¥566</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg shadow-sm overflow-hidden card-hover">
+                            <div class="h-48 bg-light flex items-center justify-center">
+                                <img src="imag/O1CN01pM5DZ22FER59pidac_!!2201282638848.jpg" alt="法拉蒙高颜值记事本可定制" class="max-h-full max-w-full object-contain">
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-sm font-medium line-clamp-2 h-10">法拉蒙高颜值记事本可定制</h3>
+                                <p class="text-accent font-bold mt-2">¥58</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg shadow-sm overflow-hidden card-hover">
+                            <div class="h-48 bg-light flex items-center justify-center">
+                                <img src="imag/沙发.jpg" alt="科技布布艺沙发" class="max-h-full max-w-full object-contain">
+   
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-sm font-medium line-clamp-2 h-10">科技布布艺沙发</h3>
+                                <p class="text-accent font-bold mt-2">¥3579</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+
+                <section class="mb-8">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-xl font-bold">人气推荐</h2>
+                        <div class="flex space-x-2">
+                            <a href="#" class="text-sm text-gray-500 hover:text-primary">人气爆款</a>
+                            <a href="#" class="text-sm text-gray-500 hover:text-primary">不容错过</a>
+                            <a href="#" class="text-sm text-primary">查看全部 <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+                        <div class="bg-white rounded-lg shadow-sm overflow-hidden card-hover">
+                            <div class="h-32 bg-gray-100 flex items-center justify-center">
+                                <img src="imag/书本.jpg" alt="畅销好书" class="max-h-full max-w-full object-contain">
+                            </div>
+                            <div class="p-3">
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg shadow-sm overflow-hidden card-hover">
+                            <div class="h-32 bg-gray-100 flex items-center justify-center">
+                                <img src="imag/人气好物.jpg" alt="人气好物" class="max-h-full max-w-full object-contain">
+                            </div>
+                            <div class="p-3">
+                                <h4 class="text-xs text-center text-gray-500">爆款推荐</h4>
+                                <p class="text-xs text-center text-gray-400">人气好物推荐</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg shadow-sm overflow-hidden card-hover">
+                            <div class="h-32 bg-gray-100 flex items-center justify-center">
+                                <img src="imag/中秋.jpg" alt="益企中秋节" class="max-h-full max-w-full object-contain">
+                            </div>
+                            <div class="p-3">
+                                <h4 class="text-xs text-center text-gray-500">节日礼品一站买全</h4>
+                                <p class="text-xs text-center text-gray-400">编辑尽心整理推荐</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg shadow-sm overflow-hidden card-hover">
+                            <div class="h-32 bg-gray-100 flex items-center justify-center">
+                                <img src="imag/鲜花.jpg" alt="鲜花园艺馆" class="max-h-full max-w-full object-contain">
+                            </div>
+                            <div class="p-3">
+                                <h4 class="text-xs text-center text-gray-500">鲜花园艺</h4>
+                                <p class="text-xs text-center text-gray-400">给生活增加仪式感</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+
+                <section class="mb-8">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-xl font-bold">热门品牌</h2>
+                        <div class="flex space-x-2">
+                            <a href="#" class="text-sm text-gray-500 hover:text-primary">国际经典</a>
+                            <a href="#" class="text-sm text-gray-500 hover:text-primary">品质认证</a>
+                            <div class="flex space-x-1 ml-4">
+                                <button class="text-gray-400 hover:text-primary">
+                                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                                </button>
+                                <button class="text-gray-400 hover:text-primary">
+                                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+
+                        <div class="bg-white rounded-lg shadow-sm overflow-hidden card-hover">
+                            <div class="h-36 bg-light flex items-center justify-center">
+                                <img src="imag/v2-48edbb4737ef0c638f7819df615e8f89_720w.jpg" alt="edition品牌" class="max-h-full max-w-full object-contain">
+                            </div>
+                            <div class="p-3">
+                                <h3 class="text-sm font-medium text-center">edition</h3>
+                                <p class="text-xs text-center text-gray-500">大牌直降5折起</p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm overflow-hidden card-hover">
+                            <div class="h-36 bg-light flex items-center justify-center">
+                                <img src="imag/男款.jpg" alt="inman品牌" class="max-h-full max-w-full object-contain">
+                            </div>
+                            <div class="p-3">
+                                <h3 class="text-sm font-medium text-center">inman</h3>
+                                <p class="text-xs text-center text-gray-500">夏季爆款钜惠</p>
+                            </div>
+                        </div>
+           
+                        <div class="bg-white rounded-lg shadow-sm overflow-hidden card-hover">
+                            <div class="h-36 bg-light flex items-center justify-center">
+                                <img src="imag/男款2.jpg" alt="PEACEBIRD品牌" class="max-h-full max-w-full object-contain">
+                            </div>
+                            <div class="p-3">
+                                <h3 class="text-sm font-medium text-center">PEACEBIRD</h3>
+                                <p class="text-xs text-center text-gray-500">全场1件7.5折</p>
+                            </div>
+                        </div>
+        
+                        <div class="bg-white rounded-lg shadow-sm overflow-hidden card-hover">
+                            <div class="h-36 bg-light flex items-center justify-center">
+                                <img src="imag/男款4.jpg" alt="ONLY品牌" class="max-h-full max-w-full object-contain">
+                            </div>
+                            <div class="p-3">
+                                <h3 class="text-sm font-medium text-center">ONLY</h3>
+                                <p class="text-xs text-center text-gray-500">2件8折 3件7折</p>
+                            </div>
+                        </div>
+                      
+                        <div class="bg-white rounded-lg shadow-sm overflow-hidden card-hover">
+                            <div class="h-36 bg-light flex items-center justify-center">
+                                <img src="imag/男款3jpg.webp" alt="OSA欧莎品牌" class="max-h-full max-w-full object-contain">
+                            </div>
+                            <div class="p-3">
+                                <h3 class="text-sm font-medium text-center">OSA欧莎</h3>
+                                <p class="text-xs text-center text-gray-500">到手低至5.5折</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+ 
+                <section class="mb-8">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-xl font-bold">生鲜</h2>
+                        <div class="flex space-x-2">
+                            <a href="#" class="text-sm text-gray-500 hover:text-primary">热门</a>
+                            <a href="#" class="text-sm text-gray-500 hover:text-primary">蔬菜</a>
+                            <a href="#" class="text-sm text-gray-500 hover:text-primary">肉禽蛋</a>
+                            <a href="#" class="text-sm text-gray-500 hover:text-primary">水果</a>
+                            <a href="#" class="text-sm text-gray-500 hover:text-primary">海鲜</a>
+                            <a href="#" class="text-sm text-gray-500 hover:text-primary">零食</a>
+                            <a href="#" class="text-sm text-gray-500 hover:text-primary">饮料</a>
+                            <a href="#" class="text-sm text-primary">查看全部 <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      
+                        <div class="bg-white rounded-lg shadow-sm overflow-hidden card-hover">
+                            <div class="h-48 bg-light flex items-center justify-center">
+                                <img src="imag/卷饼.jpg" alt="双味千层，手抓饼烤肉卷" class="max-h-full max-w-full object-contain">
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-sm font-medium line-clamp-2 h-10">双味千层，手抓饼烤肉卷云240g/袋*4袋装</h3>
+                                <p class="text-accent font-bold mt-2">¥89.99</p>
+                            </div>
+                        </div>
+                
+                        <div class="bg-white rounded-lg shadow-sm overflow-hidden card-hover">
+                            <div class="h-48 bg-light flex items-center justify-center">
+                                <img src="imag/馒头.jpg" alt="云南白蔗糖红曲馒头" class="max-h-full max-w-full object-contain">
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-sm font-medium line-clamp-2 h-10">云南白蔗糖红曲馒头220g/袋*5袋装</h3>
+                                <p class="text-accent font-bold mt-2">¥9.99</p>
+                            </div>
+                        </div>
+                    
+                        <div class="bg-white rounded-lg shadow-sm overflow-hidden card-hover">
+                            <div class="h-48 bg-light flex items-center justify-center">
+                                <img src="imag/雪饼.jpg" alt="日式风味小馒头" class="max-h-full max-w-full object-contain">
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-sm font-medium line-clamp-2 h-10">日式风味小馒头圆形【海苔味】糖果味等多款</h3>
+                                <p class="text-accent font-bold mt-2">¥58.00</p>
+                            </div>
+                        </div>
+                   
+                        <div class="bg-white rounded-lg shadow-sm overflow-hidden card-hover">
+                            <div class="h-48 bg-light flex items-center justify-center">
+                                <img src="imag/小面包.jpg" alt="全麦奶油浓香小面包" class="max-h-full max-w-full object-contain">
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-sm font-medium line-clamp-2 h-10">全麦奶油浓香小面包50g*12袋</h3>
+                                <p class="text-accent font-bold mt-2">¥69.00</p>
+                            </div>
+                        </div>
+                     
+                        <div class="bg-white rounded-lg shadow-sm overflow-hidden card-hover">
+                            <div class="h-48 bg-light flex items-center justify-center">
+                                <img src="/imag/秘制.jpg" alt="秘制外皮五稻腹壁大甜心" class="max-h-full max-w-full object-contain">
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-sm font-medium line-clamp-2 h-10">秘制外皮五稻腹壁大甜心135g*3盒</h3>
+                                <p class="text-accent font-bold mt-2">¥39.99</p>
+                            </div>
+                        </div>
+                   
+                        <div class="bg-white rounded-lg shadow-sm overflow-hidden card-hover">
+                            <div class="h-48 bg-light flex items-center justify-center">
+                                <img src="/imag/柚子茶.jpg" alt="水果黄桃味鲜活蜜柚子茶" class="max-h-full max-w-full object-contain">
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-sm font-medium line-clamp-2 h-10">水果黄桃味鲜活蜜柚子茶358g/瓶*2瓶</h3>
+                                <p class="text-accent font-bold mt-2">¥89.99</p>
+                            </div>
+                        </div>
+                    
+                        <div class="bg-white rounded-lg shadow-sm overflow-hidden card-hover">
+                            <div class="h-48 bg-light flex items-center justify-center">
+                                <img src="/imag/巧克力.jpg" alt="浓情比利时巧克力礼盒装" class="max-h-full max-w-full object-contain">
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-sm font-medium line-clamp-2 h-10">浓情比利时巧克力礼盒装203g/盒</h3>
+                                <p class="text-accent font-bold mt-2">¥120.00</p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm overflow-hidden card-hover">
+                            <div class="h-48 bg-light flex items-center justify-center">
+                                <img src="/imag/蛋糕.jpg" alt="抹茶奶油小蛋糕礼盒装" class="max-h-full max-w-full object-contain">
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-sm font-medium line-clamp-2 h-10">抹茶奶油小蛋糕礼盒装220g</h3>
+                                <p class="text-accent font-bold mt-2">¥60.00</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+
+                <section class="mb-8">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-xl font-bold">餐厨</h2>
+                        <div class="flex space-x-2">
+                            <a href="#" class="text-sm text-gray-500 hover:text-primary">热门</a>
+                            <a href="#" class="text-sm text-gray-500 hover:text-primary">厨具</a>
+                            <a href="#" class="text-sm text-gray-500 hover:text-primary">水具</a>
+                            <a href="#" class="text-sm text-gray-500 hover:text-primary">灯具</a>
+                            <a href="#" class="text-sm text-gray-500 hover:text-primary">五金</a>
+                            <a href="#" class="text-sm text-gray-500 hover:text-primary">家装材料</a>
+                            <a href="#" class="text-sm text-gray-500 hover:text-primary">居家霉无</a>
+                            <a href="#" class="text-sm text-primary">查看全部 <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          
+                        <div class="bg-white rounded-lg shadow-sm overflow-hidden card-hover">
+                            <div class="h-48 bg-light flex items-center justify-center">
+                                <img src="/imag/餐具8.jpg" alt="餐厨馆" class="max-h-full max-w-full object-contain">
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-sm font-medium line-clamp-2 h-10">餐厨馆 大额优惠 专享来袭</h3>
+                                <p class="text-accent font-bold mt-2">专享价</p>
+                            </div>
+                        </div>
+                  
+                        <div class="bg-white rounded-lg shadow-sm overflow-hidden card-hover">
+                            <div class="h-48 bg-light flex items-center justify-center">
+                                <img src="/imag/餐具1.jpg " alt=双味千层，手抓饼烤肉组合" class="max-h-full max-w-full object-contain">
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-sm font-medium line-clamp-2 h-10">双味千层，手抓饼烤肉组合240g/袋*4片装</h3>
+                                <p class="text-accent font-bold mt-2">¥210.00</p>
+                            </div>
+                        </div>
+                    
+                        <div class="bg-white rounded-lg shadow-sm overflow-hidden card-hover">
+                            <div class="h-48 bg-light flex items-center justify-center">
+                                <img src="/imag/餐具2.jpg" alt="云南白甘蔗您红糖馒头" class="max-h-full max-w-full object-contain">
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-sm font-medium line-clamp-2 h-10">云南白甘蔗您红糖馒头220g/袋*5个装</h3>
+                                <p class="text-accent font-bold mt-2">¥32.99</p>
+                            </div>
+                        </div>
+                     
+                        <div class="bg-white rounded-lg shadow-sm overflow-hidden card-hover">
+                            <div class="h-48 bg-light flex items-center justify-center">
+                                <img src="/imag/餐具3.jpg" alt="日式风味小圆饼" class="max-h-full max-w-full object-contain">
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-sm font-medium line-clamp-2 h-10">日式风味小圆饼圆形【海苔味】糖果零食品</h3>
+                                <p class="text-accent font-bold mt-2">¥30.00</p>
+                            </div>
+                        </div>
+                  
+                        <div class="bg-white rounded-lg shadow-sm overflow-hidden card-hover">
+                            <div class="h-48 bg-light flex items-center justify-center">
+                                <img src="/imag/餐具4.jpg" alt="全麦奶油浓香小面包" class="max-h-full max-w-full object-contain">
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-sm font-medium line-clamp-2 h-10">全麦奶油浓香小面包50g*12袋美味西点</h3>
+                                <p class="text-accent font-bold mt-2">¥69.99</p>
+                            </div>
+                        </div>
+                 
+                        <div class="bg-white rounded-lg shadow-sm overflow-hidden card-hover">
+                            <div class="h-48 bg-light flex items-center justify-center">
+                                <img src="/imag/餐具5.jpg" alt="秘制外皮五福福提大福星点心" class="max-h-full max-w-full object-contain">
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-sm font-medium line-clamp-2 h-10">秘制外皮五福福提大福星点心150g/盒</h3>
+                                <p class="text-accent font-bold mt-2">¥99.99</p>
+                            </div>
+                        </div>
+                     
+                        <div class="bg-white rounded-lg shadow-sm overflow-hidden card-hover">
+                            <div class="h-48 bg-light flex items-center justify-center">
+                                <img src="/imag/餐具6.jpg" alt="水果黄桃味韩国蜂蜜柚子茶" class="max-h-full max-w-full object-contain">
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-sm font-medium line-clamp-2 h-10">水果黄桃味韩国蜂蜜柚子茶560g/瓶冲调饮品</h3>
+                                <p class="text-accent font-bold mt-2">¥35.00</p>
+                            </div>
+                        </div>
+                      
+                        <div class="bg-white rounded-lg shadow-sm overflow-hidden card-hover">
+                            <div class="h-48 bg-light flex items-center justify-center">
+                                <img src="/imag/餐具7.jpg" alt="浓情比利时巧克力礼盒装" class="max-h-full max-w-full object-contain">
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-sm font-medium line-clamp-2 h-10">浓情比利时巧克力礼盒装205g/盒糖果零食</h3>
+                                <p class="text-accent font-bold mt-2">¥12.99</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+    
+
+    <footer class="bg-gray-50">
+   
+        <div class="border-b border-gray-200 py-6">
+            <div class="container mx-auto px-4">
+                <div class="flex justify-center space-x-12">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+                            <i class="fa fa-money" aria-hidden="true"></i>
+                        </div>
+                        <span class="text-gray-800 font-medium">价格亲民</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+                            <i class="fa fa-truck" aria-hidden="true"></i>
+                        </div>
+                        <span class="text-gray-800 font-medium">物流快捷</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+                            <i class="fa fa-leaf" aria-hidden="true"></i>
+                        </div>
+                        <span class="text-gray-800 font-medium">品质新鲜</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+                            <i class="fa fa-headphones" aria-hidden="true"></i>
+                        </div>
+                        <span class="text-gray-800 font-medium">售后无忧</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+  
+        <div class="container mx-auto px-4 py-10">
+            <div class="flex flex-wrap justify-between">
+     
+                <div class="w-full md:w-1/5 mb-8 md:mb-0">
+                    <h3 class="text-lg font-bold mb-4 text-gray-800">购物指南</h3>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="#" class="hover:text-green-600 transition-colors">购物流程</a></li>
+                        <li><a href="#" class="hover:text-green-600 transition-colors">支付方式</a></li>
+                        <li><a href="#" class="hover:text-green-600 transition-colors">售后规则</a></li>
+                    </ul>
+                </div>
+                
+        
+                <div class="w-full md:w-1/5 mb-8 md:mb-0">
+                    <h3 class="text-lg font-bold mb-4 text-gray-800">配送方式</h3>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="#" class="hover:text-green-600 transition-colors">配送运费</a></li>
+                        <li><a href="#" class="hover:text-green-600 transition-colors">配送范围</a></li>
+                        <li><a href="#" class="hover:text-green-600 transition-colors">配送时间</a></li>
+                    </ul>
+                </div>
+                
+     
+                <div class="w-full md:w-1/5 mb-8 md:mb-0">
+                    <h3 class="text-lg font-bold mb-4 text-gray-800">关于我们</h3>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="#" class="hover:text-green-600 transition-colors">平台规则</a></li>
+                        <li><a href="#" class="hover:text-green-600 transition-colors">联系我们</a></li>
+                        <li><a href="#" class="hover:text-green-600 transition-colors">问题反馈</a></li>
+                    </ul>
+                </div>
+                
+    
+                <div class="w-full md:w-1/5 mb-8 md:mb-0">
+                    <h3 class="text-lg font-bold mb-4 text-gray-800">售后服务</h3>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="#" class="hover:text-green-600 transition-colors">售后政策</a></li>
+                        <li><a href="#" class="hover:text-green-600 transition-colors">退款说明</a></li>
+                        <li><a href="#" class="hover:text-green-600 transition-colors">取消订单</a></li>
+                    </ul>
+                </div>
+                
+        
+                <div class="w-full md:w-1/5">
+                    <h3 class="text-lg font-bold mb-4 text-gray-800">服务热线</h3>
+                    <div class="space-y-3 text-sm text-gray-600">
+                        <p><a href="#" class="hover:text-green-600 transition-colors">在线客服 <i class="fa fa-headphones" aria-hidden="true"></i></a></p>
+                        <p>客服电话：4000-000-000</p>
+                        <p>工作时间：周一至周日 8:00-18:00</p>
+                    </div>
+    
+                    <div class="flex space-x-6 mt-6">
+                        <div class="text-center">
+                            <div class="w-24 h-24 bg-white p-2 border border-gray-200 mb-2">
+                                <img src="/imag/wechat.png" alt="微信公众号" class="w-full h-full object-contain">
+                            </div>
+                            <p class="text-xs text-gray-600">微信公众号</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-24 h-24 bg-white p-2 border border-gray-200 mb-2">
+                                <img src="/imag/app.png" alt="APP下载二维码" class="w-full h-full object-contain">
+                            </div>
+                            <p class="text-xs text-gray-600">APP下载二维码</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="bg-white border-t border-gray-200 py-6">
+            <div class="container mx-auto px-4">
+                <div class="text-center text-sm text-gray-600 mb-3">
+                    <a href="#" class="hover:text-green-600 transition-colors mr-4">关于我们</a>
+                    <a href="#" class="hover:text-green-600 transition-colors mr-4">帮助中心</a>
+                    <a href="#" class="hover:text-green-600 transition-colors mr-4">售后服务</a>
+                    <a href="#" class="hover:text-green-600 transition-colors mr-4">配送与验收</a>
+                    <a href="#" class="hover:text-green-600 transition-colors mr-4">商务合作</a>
+                    <a href="#" class="hover:text-green-600 transition-colors">搜索推荐</a>
+                </div>
+                <div class="text-center text-xs text-gray-500">
+                    <p>© Copyright 小兔鲜儿</p>
+                </div>
+                <div class="text-center font-bold mt-3">
+                    <p>学号：25216950320</p>
+                    <p>姓名：黄颖锋</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-primary/90">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </button>
+</body>
+</html>
